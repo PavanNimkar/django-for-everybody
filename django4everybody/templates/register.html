@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h2>Register</h2>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+    <label for="username">Enter Username</label>
+    <input type="text" id="username" placeholder="username" name="username"/>
+    <br />
+    <label for="email">Enter Email</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="abc@gmail.com"
+      name="email"
+    />
+    <br />
+    <label for="password">Enter Password</label>
+    <input type="password" id="password" placeholder="password" name="password"/>
+    <br />
+    <label for="confirm_password">Confirm Password</label>
+    <input
+      type="password"
+      id="confirm_password"
+      placeholder="confirm_password"
+      name="confirm_password"
+    />
+    <br />
+    <button type="submit">Register</button>
+    </form>
+    <p>Already have account?<a href="{% url 'login' %}"">Login</a></p>
+  </body>
+</html>
